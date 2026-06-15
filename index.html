@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="oxblood">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="10-Day Kubernetes Bootcamp by CareerByteCode — hands-on, project-driven training with Shubh Dadhich. Deploy, automate with GitOps, and troubleshoot real workloads. Starts June 22.">
+<meta property="og:title" content="Kubernetes Bootcamp — 10 Hands-On Days with Shubh | CareerByteCode">
+<meta property="og:description" content="Master Kubernetes in 10 hands-on days — deploy, automate with GitOps, and troubleshoot real workloads. Bootcamp starts June 22.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://careerbytecode.github.io/kubernetes-bootcamp/">
+<meta property="og:image" content="https://careerbytecode.github.io/kubernetes-bootcamp/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1C1012">
+<link rel="canonical" href="https://careerbytecode.github.io/kubernetes-bootcamp/">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<title>Kubernetes Bootcamp — 10 Hands-On Days with Shubh | CareerByteCode</title>
+<link rel="preload" href="fonts/kanit-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/kanit-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="shared-premium.css">
+<style>
+/* ===== SELF-HOSTED KANIT (per-weight latin subset) ===== */
+@font-face{font-family:'Kanit';font-style:normal;font-weight:300;font-display:optional;src:url('fonts/kanit-300.woff2') format('woff2');}
+@font-face{font-family:'Kanit';font-style:normal;font-weight:400;font-display:optional;src:url('fonts/kanit-400.woff2') format('woff2');}
+@font-face{font-family:'Kanit';font-style:normal;font-weight:500;font-display:optional;src:url('fonts/kanit-500.woff2') format('woff2');}
+@font-face{font-family:'Kanit';font-style:normal;font-weight:700;font-display:optional;src:url('fonts/kanit-700.woff2') format('woff2');}
+@font-face{font-family:'Kanit';font-style:normal;font-weight:900;font-display:optional;src:url('fonts/kanit-900.woff2') format('woff2');}
+
+/* ===== PAGE LAYOUT (Oxblood) ===== */
+:root{--dm-cream:#EFE3D0;--dm-maroon:#6E1F2A;}
+body{background:#1C1012;color:#E3D2B8;overflow-x:clip;}
+.hero-heading{background:linear-gradient(180deg,#E3D2B8 0%,#B98A6E 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.dm-pill{position:relative;display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;color:#fff;font-weight:500;text-transform:uppercase;letter-spacing:.12em;padding:1rem 2.2rem;background:linear-gradient(123deg,#2B0E12 7%,#6E1F2A 37%,#C0703F 72%,#C2922E 100%);box-shadow:0 4px 4px rgba(110,31,42,.25),4px 4px 12px #6E1F2A inset;outline:2px solid rgba(239,227,208,.9);outline-offset:-3px;transition:transform .2s var(--ease-out-expo);}
+.dm-pill:hover{transform:translateY(-2px);}
+.dm-ghost{display:inline-flex;align-items:center;gap:.5rem;border-radius:9999px;border:2px solid #E3D2B8;color:#E3D2B8;font-weight:500;text-transform:uppercase;letter-spacing:.14em;padding:.9rem 2rem;transition:background .2s;}
+.dm-ghost:hover{background:rgba(227,210,184,.10);}
+.dm-hero{display:flex;flex-direction:column;position:relative;overflow-x:clip;padding:0 clamp(1.25rem,4vw,3rem) clamp(3rem,6vw,5rem);}
+.dm-nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;z-index:20;}
+.dm-nav__links{display:flex;gap:clamp(1rem,3vw,2.5rem);}
+.dm-nav__links a{color:#D8C7B0;text-transform:uppercase;letter-spacing:.08em;font-weight:500;font-size:clamp(.8rem,1.4vw,1.4rem);transition:opacity .2s;}
+.dm-nav__links a:hover{opacity:.7;}
+.dm-hero__main{display:flex;flex-direction:column;gap:clamp(1.5rem,4vh,3rem);padding-top:clamp(1.5rem,5vh,3.5rem);}
+.dm-hero__heading{font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.88;font-size:clamp(2.6rem,13vw,11rem);}
+.dm-hero__row{display:flex;justify-content:space-between;align-items:center;gap:clamp(2rem,5vw,4rem);}
+.dm-hero__intro{display:flex;flex-direction:column;gap:clamp(1.5rem,3vw,2.25rem);max-width:clamp(300px,46vw,580px);}
+.dm-hero__lead{color:#D8C7B0;font-weight:300;letter-spacing:.01em;line-height:1.6;font-size:clamp(.95rem,1.3vw,1.4rem);}
+.dm-hero__chips{display:flex;flex-wrap:wrap;gap:.6rem .7rem;}
+.dm-hero__chips li{display:flex;align-items:center;gap:.5rem;border:1px solid var(--border-2);background:var(--surface);border-radius:9999px;padding:.55rem 1.05rem;font-size:clamp(.78rem,1.1vw,.95rem);font-weight:500;color:#E3D2B8;text-transform:uppercase;letter-spacing:.03em;}
+.dm-hero__right{display:flex;flex-direction:column;align-items:flex-end;gap:clamp(1rem,2vw,1.5rem);flex:0 0 auto;}
+.dm-hero__portrait{width:clamp(220px,28vw,360px);line-height:0;filter:drop-shadow(0 20px 44px rgba(0,0,0,.55));}
+.dm-hero__portrait img{width:100%;height:auto;}
+@media(max-width:760px){.dm-hero__main{padding-top:clamp(1.5rem,6vh,3.5rem);}.dm-hero__row{flex-direction:column;align-items:stretch;}.dm-hero__intro{max-width:none;}.dm-hero__right{align-items:stretch;width:100%;}.dm-hero__portrait{width:100%;max-width:280px;margin:0 auto;}.dm-hero__right .dm-pill,.dm-hero__right .dm-ghost{justify-content:center;}}
+.dm-marquee{padding:clamp(6rem,12vw,10rem) 0 2.5rem;overflow:hidden;display:flex;flex-direction:column;gap:.75rem;}
+.dm-marquee__row{overflow:hidden;}
+.dm-marquee__track{display:flex;gap:.75rem;width:max-content;will-change:transform;}
+.dm-chip{flex:0 0 auto;display:flex;align-items:center;gap:.6rem;height:72px;padding:0 1.6rem;border-radius:16px;border:1px solid var(--border-2);background:var(--bg-elevated);color:#E3D2B8;font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(.9rem,1.4vw,1.25rem);white-space:nowrap;}
+.dm-chip__dot{width:10px;height:10px;border-radius:50%;background:var(--terracotta);}
+.dm-chip:nth-child(2n) .dm-chip__dot{background:var(--gold);}
+.dm-chip:nth-child(3n) .dm-chip__dot{background:var(--maroon);}
+.dm-about{display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(2.5rem,5vw,4rem);padding:clamp(5rem,10vw,8rem) clamp(1.25rem,4vw,3rem);}
+.dm-eyebrow{text-transform:uppercase;letter-spacing:.22em;color:var(--terracotta);font-weight:500;font-size:clamp(.8rem,1.2vw,1rem);}
+.dm-h2{font-weight:900;text-transform:uppercase;line-height:.95;letter-spacing:-.02em;font-size:clamp(3rem,12vw,160px);}
+.dm-about__lead{color:#E3D2B8;font-weight:500;line-height:1.6;max-width:680px;font-size:clamp(1rem,2vw,1.35rem);}
+.dm-values{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(1rem,2vw,1.5rem);width:100%;max-width:1100px;text-align:left;}
+.dm-value{border:1px solid var(--border-2);border-radius:20px;padding:1.6rem;background:var(--surface);}
+.dm-value h3{color:var(--gold);text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1rem,1.6vw,1.25rem);margin-bottom:.6rem;}
+.dm-value p{color:#D8C7B0;font-weight:300;line-height:1.6;font-size:clamp(.9rem,1.3vw,1.05rem);}
+.dm-mentor{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(2rem,5vw,4.5rem);align-items:center;max-width:1180px;margin:0 auto;padding:clamp(4.5rem,8vw,7.5rem) clamp(1.25rem,4vw,3rem);}
+.dm-mentor__media{line-height:0;filter:drop-shadow(0 20px 44px rgba(0,0,0,.55));text-align:center;}
+.dm-mentor__media img{width:clamp(220px,80%,320px);height:auto;}
+.dm-mentor__h2{font-size:clamp(2.4rem,7vw,5rem);margin:.4rem 0 1.1rem;}
+.dm-mentor__name{font-weight:700;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.3rem,2.4vw,2rem);color:#E3D2B8;}
+.dm-mentor__role{color:var(--gold);font-weight:500;margin:.35rem 0 1.2rem;font-size:clamp(.95rem,1.4vw,1.15rem);}
+.dm-mentor__bio{color:#D8C7B0;font-weight:300;line-height:1.7;max-width:52ch;font-size:clamp(.95rem,1.4vw,1.2rem);}
+.dm-mentor__stats{display:flex;flex-wrap:wrap;gap:.6rem .8rem;margin:1.5rem 0 1.9rem;}
+.dm-mentor__stats li{display:flex;align-items:center;gap:.5rem;border:1px solid var(--border-2);background:var(--surface);border-radius:9999px;padding:.5rem 1rem;font-size:clamp(.78rem,1.1vw,.92rem);font-weight:500;color:#E3D2B8;text-transform:uppercase;letter-spacing:.03em;}
+@media(max-width:760px){.dm-mentor{grid-template-columns:1fr;gap:2rem;}}
+.dm-curriculum{background:var(--cream);color:var(--cream-text);border-radius:clamp(40px,6vw,60px) clamp(40px,6vw,60px) 0 0;padding:clamp(5rem,9vw,8rem) clamp(1.25rem,4vw,3rem);}
+.dm-h2--dark{color:#1C1012;-webkit-text-fill-color:initial;background:none;text-align:center;margin-bottom:clamp(3rem,6vw,5rem);}
+.dm-tracks{max-width:1000px;margin:0 auto;}
+.dm-track{display:flex;gap:clamp(1rem,3vw,2.5rem);align-items:flex-start;padding:clamp(1.5rem,3vw,2.5rem) 0;border-top:1px solid rgba(12,12,12,.15);}
+.dm-track:last-child{border-bottom:1px solid rgba(12,12,12,.15);}
+.dm-track__num{font-weight:900;line-height:1;color:#1C1012;font-size:clamp(2.5rem,8vw,110px);min-width:1.4em;}
+.dm-track h3{text-transform:uppercase;font-weight:500;font-size:clamp(1.1rem,2.4vw,2rem);margin-bottom:.5rem;color:#1C1012;}
+.dm-track p{font-weight:300;line-height:1.6;max-width:52ch;color:#3A2A20;font-size:clamp(.9rem,1.5vw,1.15rem);}
+.dm-curriculum__cta{text-align:center;margin-top:clamp(3rem,5vw,4rem);}
+.dm-curriculum__cta p{text-transform:uppercase;letter-spacing:.04em;font-weight:500;margin-bottom:1.25rem;color:#1C1012;font-size:clamp(1rem,2vw,1.4rem);}
+.dm-manifesto{background:#1C1012;text-align:center;padding:clamp(6rem,12vw,10rem) clamp(1.25rem,5vw,4rem);display:flex;flex-direction:column;align-items:center;gap:clamp(2rem,4vw,3rem);}
+.dm-manifesto__text{font-weight:700;text-transform:uppercase;line-height:1.15;letter-spacing:-.01em;max-width:20ch;color:#E3D2B8;font-size:clamp(1.8rem,6vw,4.5rem);}
+.dm-journey{background:#1C1012;border-radius:clamp(40px,6vw,60px) clamp(40px,6vw,60px) 0 0;margin-top:clamp(-3.5rem,-6vw,-2.5rem);position:relative;z-index:10;padding:clamp(4rem,8vw,7rem) clamp(1.25rem,4vw,3rem) clamp(6rem,10vw,9rem);}
+.dm-journey .dm-h2{margin-bottom:clamp(3rem,6vw,5rem);}
+.dm-cards{max-width:980px;margin:0 auto;}
+.dm-card-slot{height:85vh;display:flex;align-items:flex-start;}
+.dm-card{position:sticky;top:clamp(6rem,12vh,8rem);width:100%;border:2px solid #E3D2B8;background:#1C1012;border-radius:clamp(28px,4vw,48px);padding:clamp(1.5rem,4vw,3rem);transform-origin:top center;}
+.dm-card__num{font-weight:900;line-height:1;color:var(--terracotta);font-size:clamp(2.5rem,8vw,90px);display:block;margin-bottom:1rem;}
+.dm-card h3{text-transform:uppercase;font-size:clamp(1.3rem,3vw,2.4rem);margin-bottom:.75rem;color:#E3D2B8;}
+.dm-card p{font-weight:300;line-height:1.6;max-width:52ch;color:#D8C7B0;font-size:clamp(.95rem,1.6vw,1.25rem);}
+.dm-final{background:#1C1012;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.5rem;padding:clamp(5rem,10vw,9rem) clamp(1.25rem,4vw,3rem);}
+.dm-final__row{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1rem;}
+.dm-footer{background:#140B0D;text-align:center;padding:clamp(3rem,6vw,5rem) 1.5rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;color:#A8937A;}
+.dm-footer__logo{width:clamp(200px,44vw,250px);height:auto;margin-bottom:1.3rem;background:#fff;border-radius:16px;padding:14px 20px;box-shadow:0 8px 28px rgba(0,0,0,.4);}
+.dm-footer__name{color:#E3D2B8;font-weight:500;text-transform:uppercase;letter-spacing:.06em;font-size:1.1rem;}
+.dm-footer a{color:var(--gold);}
+.dm-footer__copy{font-size:.85rem;margin-top:.75rem;}
+</style>
+</head>
+<body>
+<main id="main">
+<section class="dm-hero" id="hero">
+  <nav class="dm-nav">
+    <a class="dm-nav__brand" href="#hero"><img src="cbc-logo-72.webp" width="36" height="36" alt="CareerByteCode"></a>
+    <ul class="dm-nav__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#curriculum">Curriculum</a></li>
+      <li><a href="#journey">Outcomes</a></li>
+      <li><a href="https://chat.whatsapp.com/G3SDIBfbFEcFu70XtE2B8p?s=sh&p=i&ilr=4&amv=2" target="_blank" rel="noopener noreferrer">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="dm-hero__main">
+    <h1 class="hero-heading dm-hero__heading">Hi, I&apos;m Shubh.</h1>
+    <div class="dm-hero__row">
+      <div class="dm-hero__intro">
+        <p class="dm-hero__lead">Master Kubernetes in 10 hands-on days — deploy, automate, and troubleshoot real workloads. Project-driven, with a capstone that mirrors production. Bootcamp starts June&nbsp;22.</p>
+        <ul class="dm-hero__chips">
+          <li><span class="dm-chip__dot"></span>10 Days</li>
+          <li><span class="dm-chip__dot"></span>Hands-On</li>
+          <li><span class="dm-chip__dot"></span>Project-Driven</li>
+          <li><span class="dm-chip__dot"></span>Capstone Project</li>
+        </ul>
+      </div>
+      <div class="dm-hero__right">
+        <div class="dm-hero__portrait">
+          <img src="shubh.png" width="265" height="267" alt="Shubh Dadhich, Kubernetes instructor" fetchpriority="high">
+        </div>
+        <a class="dm-pill" href="https://forms.gle/REPLACE-WITH-FORM" target="_blank" rel="noopener noreferrer">Register Now</a>
+        <a class="dm-ghost" href="https://chat.whatsapp.com/G3SDIBfbFEcFu70XtE2B8p?s=sh&p=i&ilr=4&amv=2" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="dm-marquee" id="tools" aria-label="Tools and technologies you will master">
+  <div class="dm-marquee__row" data-marquee="right">
+    <div class="dm-marquee__track" id="marquee-row-1"></div>
+  </div>
+  <div class="dm-marquee__row" data-marquee="left">
+    <div class="dm-marquee__track" id="marquee-row-2"></div>
+  </div>
+</section>
+<section class="dm-about" id="about">
+  <p class="dm-eyebrow">Why This Bootcamp</p>
+  <h2 class="hero-heading dm-h2">Built to Make You Kubernetes-Ready</h2>
+  <p class="dm-about__lead" id="about-reveal">Kubernetes is learned by running it, not reading about it. From day one you&apos;ll work on a real cluster — deploying applications, configuring storage and networking, automating delivery with GitOps, and debugging the failures that actually happen in production. Guided by Shubh across ten hands-on days, you&apos;ll go from your first pod to a stabilized, customer-facing capstone — and walk away able to deploy, automate, and troubleshoot Kubernetes with confidence.</p>
+
+  <div class="dm-values">
+    <article class="dm-value reveal"><h3>Hands-On From Day One</h3><p>Every day you deploy, break, and fix real workloads on a live cluster — practical skills, not slides.</p></article>
+    <article class="dm-value reveal"><h3>Real Troubleshooting</h3><p>Debug the failures you&apos;ll actually hit in production: CrashLoopBackOff, ImagePullBackOff, OOMKilled, and more.</p></article>
+    <article class="dm-value reveal"><h3>Project &amp; Capstone Driven</h3><p>Ten daily use-cases build toward a final capstone that mirrors a real production incident, end to end.</p></article>
+    <article class="dm-value reveal"><h3>Modern, AI-Powered Stack</h3><p>Gateway API, GitOps with Argo CD, and AI-assisted operations with K8sGPT — the tools teams actually use now.</p></article>
+  </div>
+
+  <a class="dm-pill" href="https://forms.gle/REPLACE-WITH-FORM" target="_blank" rel="noopener noreferrer">Register Now</a>
+</section>
+<section class="dm-mentor" id="mentor">
+  <div class="dm-mentor__media">
+    <img src="shubh.png" width="265" height="267" alt="Shubh Dadhich, your instructor" loading="lazy">
+  </div>
+  <div class="dm-mentor__body">
+    <p class="dm-eyebrow">Meet Your Instructor</p>
+    <h2 class="hero-heading dm-h2 dm-mentor__h2">Learn From Shubh</h2>
+    <p class="dm-mentor__name">Shubh Dadhich</p>
+    <p class="dm-mentor__role">DevOps Engineer &middot; Kubernetes Expert</p>
+    <p class="dm-mentor__bio">Shubh is a DevOps engineer and Kubernetes specialist who works with real clusters, CI/CD pipelines, and GitOps every day. He teaches the way he works &mdash; hands-on and production-focused &mdash; turning complex Kubernetes concepts into skills you can apply immediately, from your first deployment to debugging a failing pod with AI-assisted tooling.</p>
+    <ul class="dm-mentor__stats">
+      <li><span class="dm-chip__dot"></span>Kubernetes Expert</li>
+      <li><span class="dm-chip__dot"></span>DevOps Engineer</li>
+      <li><span class="dm-chip__dot"></span>GitOps &amp; CI/CD</li>
+      <li><span class="dm-chip__dot"></span>Hands-On Mentor</li>
+    </ul>
+    <a class="dm-ghost" href="https://www.linkedin.com/in/shubhcloud/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn &#8599;</a>
+  </div>
+</section>
+<section class="dm-curriculum" id="curriculum">
+  <h2 class="dm-h2 dm-h2--dark">10-Day Curriculum</h2>
+  <div class="dm-tracks">
+    <article class="dm-track reveal"><span class="dm-track__num">01</span><div><h3>Kubernetes Fundamentals</h3><p>Architecture, control plane &amp; worker nodes, pods, namespaces, and kubectl. Use case: deploy and expose an Nginx app with a ClusterIP service.</p></div></article>
+    <article class="dm-track reveal"><span class="dm-track__num">02</span><div><h3>Objects &amp; YAML</h3><p>Manifests, labels &amp; selectors, ReplicaSets, Deployments, and desired-state management. Use case: scale a web app from 2 to 4 replicas via YAML.</p></div></article>
+    <article class="dm-track reveal"><span class="dm-track__num">03</span><div><h3>Deployments &amp; Release Strategies</h3><p>Rollouts &amp; rollbacks, Recreate, Rolling Update, Blue-Green, and zero-downtime concepts. Use case: upgrade v1&rarr;v2 with a rolling then blue-green switch.</p></div></article>
+    <article class="dm-track reveal"><span class="dm-track__num">04</span><div><h3>Configuration &amp; Storage</h3><p>ConfigMaps, Secrets, environment variables, PV/PVC, StorageClasses, stateful vs stateless. Use case: read config from a ConfigMap and Secret, persist data on a PVC.</p></div></article>
+    <article class="dm-track reveal"><span class="dm-track__num">05</span><div><h3>Networking</h3><p>Pod-to-pod communication, Services (ClusterIP, NodePort, LoadBalancer), DNS, and Network Policies. Use case: connect two apps and block unwanted traffic with a NetworkPolicy.</p></div></article>
+    <article class="dm-track reveal"><span class="dm-track__num">06</span><div><h3>Gateway API</h3><p>GatewayClass, Gateway, HTTPRoute, host- and path-based routing, external exposure. Use case: route /app1 and /app2 with Gateway API instead of Ingress.</p></div></article>
+    <article class="dm-track reveal"><span class="dm-track__num">07</span><div><h3>Scheduling &amp; Workload Placement</h3><p>Node &amp; pod affinity and anti-affinity, taints &amp; tolerations, workload isolation. Use case: pin a critical app to dedicated nodes and spread replicas safely.</p></div></article>
+    <article class="dm-track reveal"><span class="dm-track__num">08</span><div><h3>Resource Management &amp; Reliability</h3><p>Requests &amp; limits, QoS, OOMKilled, readiness/liveness/startup probes, and HPA. Use case: fix an OOMKilled app by tuning limits and probes.</p></div></article>
+    <article class="dm-track reveal"><span class="dm-track__num">09</span><div><h3>CI/CD &amp; GitOps</h3><p>GitHub Actions CI, container registries, Argo CD, self-healing, and drift detection. Use case: push to GitHub &rarr; Actions builds the image &rarr; Argo CD syncs it to the cluster.</p></div></article>
+    <article class="dm-track reveal"><span class="dm-track__num">10</span><div><h3>Helm &amp; AI-Powered Ops</h3><p>Helm charts &amp; values, K8sGPT + Ollama, and troubleshooting labs (CrashLoopBackOff, ImagePullBackOff, OOMKilled). Use case: package with Helm, then debug a broken pod with K8sGPT.</p></div></article>
+    <article class="dm-track reveal"><span class="dm-track__num">&#9733;</span><div><h3>Capstone Project</h3><p>Deploy and stabilize a customer-facing application end to end — using GitHub Actions, Argo CD, Gateway API, Helm, and AI-assisted troubleshooting with K8sGPT.</p></div></article>
+  </div>
+  <div class="dm-curriculum__cta">
+    <p>10 hands-on days, real use-cases, and a production-style capstone.</p>
+    <a class="dm-pill" href="https://forms.gle/REPLACE-WITH-FORM" target="_blank" rel="noopener noreferrer">Register Now</a>
+  </div>
+</section>
+<section class="dm-manifesto" id="manifesto">
+  <p class="dm-manifesto__text" data-charreveal>Stop reading docs. Start shipping to production. Ten hands-on days, real troubleshooting, one capstone. Bootcamp starts June 22.</p>
+  <a class="dm-pill" href="https://forms.gle/REPLACE-WITH-FORM" target="_blank" rel="noopener noreferrer">Register Now</a>
+</section>
+<section class="dm-journey" id="journey">
+  <h2 class="hero-heading dm-h2" style="text-align:center;">What You&apos;ll Be Able To Do</h2>
+  <div class="dm-cards">
+    <div class="dm-card-slot"><article class="dm-card" data-card="0"><span class="dm-card__num">01</span><h3>Deploy &amp; Manage Real Workloads</h3><p>Run, scale, and update applications on Kubernetes with confidence — pods, deployments, services, configuration, and storage.</p></article></div>
+    <div class="dm-card-slot"><article class="dm-card" data-card="1"><span class="dm-card__num">02</span><h3>Automate With CI/CD &amp; GitOps</h3><p>Ship changes automatically with GitHub Actions and Argo CD — with self-healing and drift detection built in.</p></article></div>
+    <div class="dm-card-slot"><article class="dm-card" data-card="2"><span class="dm-card__num">03</span><h3>Troubleshoot Like A Pro</h3><p>Diagnose and fix real production failures — CrashLoopBackOff, OOMKilled, routing issues — with AI-assisted analysis via K8sGPT.</p></article></div>
+    <div class="dm-card-slot"><article class="dm-card" data-card="3"><span class="dm-card__num">04</span><h3>Ship The Capstone</h3><p>Deploy and stabilize a customer-facing app end to end — proof, in your portfolio, that you&apos;re Kubernetes-ready.</p></article></div>
+  </div>
+</section>
+<section class="dm-final" id="enroll">
+  <h2 class="hero-heading dm-h2" style="text-align:center;">Bootcamp Starts June 22.</h2>
+  <p class="dm-eyebrow">Limited seats &middot; Hands-on &middot; Project-driven</p>
+  <div class="dm-final__row">
+    <a class="dm-pill" href="https://forms.gle/REPLACE-WITH-FORM" target="_blank" rel="noopener noreferrer">Register Now</a>
+    <a class="dm-ghost" href="https://chat.whatsapp.com/G3SDIBfbFEcFu70XtE2B8p?s=sh&p=i&ilr=4&amv=2" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+  </div>
+</section>
+</main>
+<footer class="dm-footer">
+  <img class="dm-footer__logo" src="cbc-logo-full.png" width="220" height="173" alt="CareerByteCode" loading="lazy">
+  <p class="dm-footer__name">Shubh Dadhich</p>
+  <p class="dm-footer__role" style="color:#A8937A;">DevOps Engineer &middot; Kubernetes Expert</p>
+  <a href="https://www.linkedin.com/in/shubhcloud/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn &#8599;</a>
+  <a href="https://www.careerbytecode.com" target="_blank" rel="noopener noreferrer">www.careerbytecode.com</a>
+  <p class="dm-footer__copy">© 2026 CareerByteCode. All rights reserved.</p>
+</footer>
+<script src="shared-premium.js"></script>
+<script src="page.js"></script>
+</body>
+</html>
