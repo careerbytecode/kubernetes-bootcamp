@@ -40,15 +40,24 @@ body{background:#1C1012;color:#E3D2B8;overflow-x:clip;}
 .dm-nav__links a:hover{opacity:.7;}
 .dm-hero__main{display:flex;flex-direction:column;gap:clamp(1.5rem,4vh,3rem);padding-top:clamp(1.5rem,5vh,3.5rem);}
 .dm-hero__heading{font-weight:900;text-transform:uppercase;letter-spacing:-.03em;line-height:.88;font-size:clamp(2.6rem,13vw,11rem);}
-.dm-hero__row{display:flex;justify-content:space-between;align-items:center;gap:clamp(2rem,5vw,4rem);}
-.dm-hero__intro{display:flex;flex-direction:column;gap:clamp(1.5rem,3vw,2.25rem);max-width:clamp(300px,46vw,580px);}
+.dm-hero__row{display:flex;justify-content:center;align-items:center;gap:clamp(1.5rem,3.5vw,3.5rem);}
+.dm-hero__intro{display:flex;flex-direction:column;gap:clamp(1.25rem,2.5vw,2rem);max-width:clamp(280px,40vw,520px);flex:1 1 auto;}
 .dm-hero__lead{color:#D8C7B0;font-weight:300;letter-spacing:.01em;line-height:1.6;font-size:clamp(.95rem,1.3vw,1.4rem);}
 .dm-hero__chips{display:flex;flex-wrap:wrap;gap:.6rem .7rem;}
 .dm-hero__chips li{display:flex;align-items:center;gap:.5rem;border:1px solid var(--border-2);background:var(--surface);border-radius:9999px;padding:.55rem 1.05rem;font-size:clamp(.78rem,1.1vw,.95rem);font-weight:500;color:#E3D2B8;text-transform:uppercase;letter-spacing:.03em;}
-.dm-hero__right{display:flex;flex-direction:column;align-items:flex-end;gap:clamp(1rem,2vw,1.5rem);flex:0 0 auto;}
-.dm-hero__portrait{width:clamp(220px,28vw,360px);line-height:0;filter:drop-shadow(0 20px 44px rgba(0,0,0,.55));}
-.dm-hero__portrait img{width:100%;height:auto;}
-@media(max-width:760px){.dm-hero__main{padding-top:clamp(1.5rem,6vh,3.5rem);}.dm-hero__row{flex-direction:column;align-items:stretch;}.dm-hero__intro{max-width:none;}.dm-hero__right{align-items:stretch;width:100%;}.dm-hero__portrait{width:100%;max-width:280px;margin:0 auto;}.dm-hero__right .dm-pill,.dm-hero__right .dm-ghost{justify-content:center;}}
+.dm-hero__cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.25rem;}
+.dm-hero__person{display:flex;flex-direction:column;align-items:center;gap:.85rem;flex:0 0 auto;}
+.dm-hero__pic{line-height:0;}
+.dm-hero__pic--cutout{width:clamp(180px,20vw,280px);filter:drop-shadow(0 20px 44px rgba(0,0,0,.55));}
+.dm-hero__pic--cutout img{width:100%;height:auto;}
+.dm-hero__pic--card{width:clamp(150px,16vw,210px);border-radius:20px;overflow:hidden;box-shadow:var(--sh-lg);}
+.dm-hero__pic--card img{width:100%;height:auto;border-radius:20px;display:block;}
+.dm-hero__cap{text-align:center;}
+.dm-hero__cap b{display:block;color:#E3D2B8;text-transform:uppercase;letter-spacing:.04em;font-weight:600;font-size:clamp(.85rem,1.1vw,1.05rem);}
+.dm-hero__cap span{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;font-size:clamp(.68rem,.85vw,.78rem);margin-top:.2rem;}
+.dm-hero__host-msg{color:#D8C7B0;font-weight:300;text-align:center;line-height:1.45;max-width:210px;font-size:clamp(.78rem,1vw,.92rem);}
+.dm-ghost--sm{padding:.65rem 1.4rem;font-size:clamp(.72rem,.95vw,.85rem);letter-spacing:.1em;}
+@media(max-width:1024px){.dm-hero__row{flex-direction:column;align-items:center;gap:clamp(2rem,5vw,3rem);}.dm-hero__intro{max-width:none;order:-1;align-items:center;text-align:center;}.dm-hero__chips{justify-content:center;}.dm-hero__cta{justify-content:center;}}
 .dm-marquee{padding:clamp(6rem,12vw,10rem) 0 2.5rem;overflow:hidden;display:flex;flex-direction:column;gap:.75rem;}
 .dm-marquee__row{overflow:hidden;}
 .dm-marquee__track{display:flex;gap:.75rem;width:max-content;will-change:transform;}
@@ -119,6 +128,13 @@ body{background:#1C1012;color:#E3D2B8;overflow-x:clip;}
   <div class="dm-hero__main">
     <h1 class="hero-heading dm-hero__heading">Hi, I&apos;m Shubh.</h1>
     <div class="dm-hero__row">
+      <figure class="dm-hero__person">
+        <div class="dm-hero__pic dm-hero__pic--cutout">
+          <img src="shubh.png" width="265" height="267" alt="Shubh Dadhich, Kubernetes instructor" fetchpriority="high">
+        </div>
+        <figcaption class="dm-hero__cap"><b>Shubh Dadhich</b><span>Your Instructor</span></figcaption>
+      </figure>
+
       <div class="dm-hero__intro">
         <p class="dm-hero__lead">Master Kubernetes in 10 hands-on days — deploy, automate, and troubleshoot real workloads. Project-driven, with a capstone that mirrors production. Bootcamp starts June&nbsp;22.</p>
         <ul class="dm-hero__chips">
@@ -127,14 +143,23 @@ body{background:#1C1012;color:#E3D2B8;overflow-x:clip;}
           <li><span class="dm-chip__dot"></span>Project-Driven</li>
           <li><span class="dm-chip__dot"></span>Capstone Project</li>
         </ul>
-      </div>
-      <div class="dm-hero__right">
-        <div class="dm-hero__portrait">
-          <img src="shubh.png" width="265" height="267" alt="Shubh Dadhich, Kubernetes instructor" fetchpriority="high">
+        <div class="dm-hero__cta">
+          <a class="dm-pill" href="https://docs.google.com/forms/d/e/1FAIpQLScq8TCCP2aDTtfRs6fJoxIJ-RYbYnVeM06YFADEN1Dk8LG5Dw/viewform" target="_blank" rel="noopener noreferrer">Register Now</a>
+          <a class="dm-ghost" href="https://chat.whatsapp.com/G3SDIBfbFEcFu70XtE2B8p?s=sh&p=i&ilr=4&amv=2" target="_blank" rel="noopener noreferrer">Want to Join the Group</a>
         </div>
-        <a class="dm-pill" href="https://docs.google.com/forms/d/e/1FAIpQLScq8TCCP2aDTtfRs6fJoxIJ-RYbYnVeM06YFADEN1Dk8LG5Dw/viewform" target="_blank" rel="noopener noreferrer">Register Now</a>
-        <a class="dm-ghost" href="https://chat.whatsapp.com/G3SDIBfbFEcFu70XtE2B8p?s=sh&p=i&ilr=4&amv=2" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
       </div>
+
+      <figure class="dm-hero__person">
+        <div class="dm-hero__pic dm-hero__pic--card">
+          <picture>
+            <source srcset="sonali-kurade-480.webp" type="image/webp">
+            <img src="sonali-kurade-480.jpg" width="480" height="480" alt="Sonali Kurade, bootcamp host">
+          </picture>
+        </div>
+        <figcaption class="dm-hero__cap"><b>Sonali Kurade</b><span>Host</span></figcaption>
+        <p class="dm-hero__host-msg">Want to know more about the Kubernetes Bootcamp? Message me.</p>
+        <a class="dm-ghost dm-ghost--sm" href="https://wa.link/ho20cw" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+      </figure>
     </div>
   </div>
 </section>
@@ -217,7 +242,7 @@ body{background:#1C1012;color:#E3D2B8;overflow-x:clip;}
   <p class="dm-eyebrow">Limited seats &middot; Hands-on &middot; Project-driven</p>
   <div class="dm-final__row">
     <a class="dm-pill" href="https://docs.google.com/forms/d/e/1FAIpQLScq8TCCP2aDTtfRs6fJoxIJ-RYbYnVeM06YFADEN1Dk8LG5Dw/viewform" target="_blank" rel="noopener noreferrer">Register Now</a>
-    <a class="dm-ghost" href="https://chat.whatsapp.com/G3SDIBfbFEcFu70XtE2B8p?s=sh&p=i&ilr=4&amv=2" target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
+    <a class="dm-ghost" href="https://chat.whatsapp.com/G3SDIBfbFEcFu70XtE2B8p?s=sh&p=i&ilr=4&amv=2" target="_blank" rel="noopener noreferrer">Want to Join the Group</a>
   </div>
 </section>
 </main>
